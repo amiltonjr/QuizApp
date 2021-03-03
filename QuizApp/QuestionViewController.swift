@@ -10,13 +10,13 @@ import UIKit
 class QuestionViewController: UIViewController {
     private var question: String?
     private var options = [String]()
-    private var selection: ((String) -> Void)? = nil
+    private var selection: (([String]) -> Void)? = nil
     private let cellIdentifier = "Cell"
     
     @IBOutlet weak private(set) var headerLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-    convenience init(question: String, options: [String], selection: @escaping (String) -> Void) {
+    convenience init(question: String, options: [String], selection: @escaping ([String]) -> Void) {
         self.init()
         self.question = question
         self.options = options
@@ -56,6 +56,6 @@ extension QuestionViewController: UITableViewDataSource {
 
 extension QuestionViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selection?(options[indexPath.row])
+        selection?([options[indexPath.row]])
     }
 }

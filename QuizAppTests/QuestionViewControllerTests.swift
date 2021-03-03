@@ -27,16 +27,16 @@ class QuestionViewControllerTests: XCTestCase {
     }
     
     func test_optionSelected_withTwoOptions_notifiesDelegateWithLastSelection() {
-        var receivedAnswer = ""
+        var receivedAnswer = [""]
         
         let sut = makeSUT(options: ["A1", "A2"]) {
             receivedAnswer = $0
         }
         
         sut.tableView.select()
-        XCTAssertEqual(receivedAnswer, "A1")
+        XCTAssertEqual(receivedAnswer, ["A1"])
         sut.tableView.select(row: 1)
-        XCTAssertEqual(receivedAnswer, "A2")
+        XCTAssertEqual(receivedAnswer, ["A2"])
     }
     
     //MARK: - Helpers
@@ -44,7 +44,7 @@ class QuestionViewControllerTests: XCTestCase {
     func makeSUT(
         question: String = "Q1",
         options: [String] = [],
-        selection: @escaping (String) -> Void = { _ in }
+        selection: @escaping ([String]) -> Void = { _ in }
     ) -> QuestionViewController {
         let sut = QuestionViewController(question: question, options: options, selection: selection)
         sut.loadViewIfNeeded()
