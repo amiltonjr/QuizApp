@@ -25,6 +25,13 @@ class QuestionViewController: UIViewController {
         self.headerLabel.text = question
         self.tableView.dataSource = self
     }
+    
+    private func dequeueCell(in tableView: UITableView) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") {
+            return cell
+        }
+        return UITableViewCell(style: .default, reuseIdentifier: "Cell")
+    }
 }
 
 
@@ -34,7 +41,7 @@ extension QuestionViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = dequeueCell(in: tableView)
         cell.textLabel?.text = options[indexPath.row]
         return cell
     }
