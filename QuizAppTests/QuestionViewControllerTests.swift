@@ -26,13 +26,17 @@ class QuestionViewControllerTests: XCTestCase {
         XCTAssertEqual(makeSUT(options: ["A1", "A2", "A3"]).tableView.title(at: 2), "A3")
     }
     
-    func test_optionSelected_notifiesDelegate() {
+    func test_optionSelected_withTwoOptions_notifiesDelegateWithLastSelection() {
         var receivedAnswer = ""
-        let sut = makeSUT(options: ["A1"]) {
+        
+        let sut = makeSUT(options: ["A1", "A2"]) {
             receivedAnswer = $0
         }
-        sut.tableView.delegate?.tableView?(sut.tableView, didSelectRowAt: IndexPath(row:0, section: 0))
+        
+        sut.tableView.select()
         XCTAssertEqual(receivedAnswer, "A1")
+        sut.tableView.select(row: 1)
+        XCTAssertEqual(receivedAnswer, "A2")
     }
     
     //MARK: - Helpers
@@ -56,6 +60,10 @@ fileprivate extension UITableView {
     
     func title(at row: Int = 0) -> String? {
         cell(row: row).textLabel?.text
+    }
+    
+    func select(row: Int = 0) {
+        delegate?.tableView?(self, didSelectRowAt: IndexPath(row:row, section: 0))
     }
 }
 
