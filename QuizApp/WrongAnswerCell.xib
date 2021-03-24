@@ -32,7 +32,7 @@
                 </subviews>
             </tableViewCellContentView>
             <connections>
-                <outlet property="answerLabel" destination="Zct-NQ-uS3" id="LSl-eD-U2f"/>
+                <outlet property="correctAnswerLabel" destination="Zct-NQ-uS3" id="eic-UB-7oP"/>
                 <outlet property="questionLabel" destination="5lc-tz-dhS" id="tkm-EU-XLu"/>
             </connections>
             <point key="canvasLocation" x="101.44927536231884" y="-9.0401785714285712"/>

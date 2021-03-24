@@ -49,7 +49,7 @@ class ResultsViewControllerTests: XCTestCase {
         let cell = sut.tableView.cell(row: 0) as? WrongAnswerCell
         XCTAssertNotNil(cell)
         XCTAssertEqual(cell?.questionLabel.text, "Q1")
-        XCTAssertEqual(cell?.answerLabel.text, "A1")
+        XCTAssertEqual(cell?.correctAnswerLabel.text, "A1")
     }
     
     //MARK: - Helpers
