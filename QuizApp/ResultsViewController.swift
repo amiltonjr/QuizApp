@@ -10,6 +10,7 @@ import UIKit
 struct PresentableAnswer {
     var question: String
     var answer: String
+    var wrongAnswer: String?
     var isCorrect: Bool
 }
 
@@ -21,6 +22,7 @@ class CorrectAnswerCell: UITableViewCell {
 class WrongAnswerCell: UITableViewCell {
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var correctAnswerLabel: UILabel!
+    @IBOutlet weak var wrongLabel: UILabel!
 }
 
 class ResultsViewController: UIViewController {
@@ -82,6 +84,7 @@ extension ResultsViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WrongAnswerCell") as! WrongAnswerCell
         cell.questionLabel.text = answer.question
         cell.correctAnswerLabel.text = answer.answer
+        cell.wrongLabel.text = answer.wrongAnswer
         return cell
     }
 }
