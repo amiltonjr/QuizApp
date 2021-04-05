@@ -3,39 +3,54 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CorrectAnswerCell" id="2dK-Gb-fi1" customClass="CorrectAnswerCell" customModule="QuizApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CorrectAnswerCell" rowHeight="96" id="2dK-Gb-fi1" customClass="CorrectAnswerCell" customModule="QuizApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2dK-Gb-fi1" id="qdB-Kp-beP">
-                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5aV-4x-RLB">
-                        <rect key="frame" x="20" y="12" width="42" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXB-Kz-h3N">
-                        <rect key="frame" x="186" y="12" width="42" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="kVn-FP-Me5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5aV-4x-RLB">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="53.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXB-Kz-h3N">
+                                <rect key="frame" x="0.0" y="75.5" width="414" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemGreenColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="kVn-FP-Me5" secondAttribute="trailing" id="7u2-R1-TMw"/>
+                    <constraint firstAttribute="bottom" secondItem="kVn-FP-Me5" secondAttribute="bottom" id="Lqs-Yr-98Z"/>
+                    <constraint firstItem="kVn-FP-Me5" firstAttribute="leading" secondItem="qdB-Kp-beP" secondAttribute="leading" id="tvc-yn-eMe"/>
+                    <constraint firstItem="kVn-FP-Me5" firstAttribute="top" secondItem="qdB-Kp-beP" secondAttribute="top" id="upu-6E-7VG"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="answerLabel" destination="fXB-Kz-h3N" id="TGm-PW-jb6"/>
                 <outlet property="questionLabel" destination="5aV-4x-RLB" id="kNh-BH-6C8"/>
             </connections>
-            <point key="canvasLocation" x="186" y="32"/>
+            <point key="canvasLocation" x="185.50724637681162" y="48.883928571428569"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
